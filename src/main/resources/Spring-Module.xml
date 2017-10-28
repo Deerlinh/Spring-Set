@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+    <bean id="helloBean" class="com.kaishengit.HelloWord">
+
+        <property name="name" value="lin" />
+        <!--基本类型注入-->
+        <property name="age" value="23"/>
+        <property name="address" value="jake"/>
+        <property name="list">
+            <list>
+                <value>tom</value>
+                <value>jake</value>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>23.3</value>
+                <value>44</value>
+            </set>
+        </property>
+
+
+        <property name="map">
+            <map>
+                <entry key="k1" value="w1"/>
+
+            </map>
+        </property>
+
+        <property name="properties">
+            <props>
+                <prop key="K1">V1</prop>
+                <prop key="K2">V2</prop>
+            </props>
+        </property>
+    </bean>
+    <!--别名-->
+  <!--  <alias name="helloBean" alias="myHelloBean"/>-->
+
+</beans>
