@@ -11,20 +11,20 @@
         <spring-version>4.3.5.RELEASE</spring-version>
         <junit-version>4.12</junit-version>
         <jlf4j-version>1.7.25</jlf4j-version>
+        <cglib-versioon>3.2.4</cglib-versioon>
     </properties>
 
 
+
     <dependencies>
-          <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${spring-version}</version>
-        </dependency>
+
+        <!--测试-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit-version}</version>
         </dependency>
+        <!--日志-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -35,6 +35,30 @@
             <artifactId>slf4j-log4j12</artifactId>
             <version>${jlf4j-version}</version>
         </dependency>
+        <!--CGLib实现-->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>${cglib-versioon}</version>
+        </dependency>
+        <!--spring-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+        <!--AOP-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>

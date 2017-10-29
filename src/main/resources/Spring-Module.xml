@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	   http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+      http://www.springframework.org/schema/aop
+      http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+   <bean id="myProxy" class="com.kaishengit.service.myProxy"/>
+<!--AOP-->
+      <bean id="aopAspect" class="com.kaishengit.aop.AopAspect"/>
 
 
-    <bean id="helloBean" class="com.kaishengit.HelloWord">
+
+
+   <aop:config>
+        <aop:aspect ref="aopAspect">
+            <aop:pointcut id="pointcut" expression="execution(* com.kaishengit.service..*.*(..))"/>
+
+            <!--环绕通知-->   <!--前置通知-->
+            <aop:before method="beforAdvice" pointcut-ref="pointcut"/>
+            <!--后置通知-->
+            <aop:after-returning method="afterReturning" pointcut-ref="pointcut"/>
+            <!--异常通知-->
+            <aop:after-throwing method="afterThowing" pointcut-ref="pointcut"/>
+            <!--最终通知-->
+            <aop:after method="after" pointcut-ref="pointcut" />
+            <aop:around method="aroundAdvice" pointcut-ref="pointcut"></aop:around>
+        </aop:aspect>
+  </aop:config>
+
+
+
+   <!--
 
         <property name="name" value="lin" />
-        <!--基本类型注入-->
+
+        &lt;!&ndash;基本类型注入&ndash;&gt;
         <property name="age" value="23"/>
         <property name="address" value="jake"/>
         <property name="list">
@@ -23,23 +51,21 @@
                 <value>44</value>
             </set>
         </property>
-
-
-        <property name="map">
+         <property name="map">
             <map>
                 <entry key="k1" value="w1"/>
 
             </map>
         </property>
-
-        <property name="properties">
+      <property name="properties">
             <props>
                 <prop key="K1">V1</prop>
                 <prop key="K2">V2</prop>
             </props>
         </property>
-    </bean>
+    </bean>-->
     <!--别名-->
   <!--  <alias name="helloBean" alias="myHelloBean"/>-->
+
 
 </beans>

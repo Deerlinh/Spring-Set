@@ -46,11 +46,11 @@ public class HelloWord {
         this.name=name;
     }
 
- /*   //②构造方法
+  /*  //②构造方法
     public HelloWord(String name){
         this.name=name;
-    }*/
-
+    }
+*/
     public void  printHello(){
         System.out.println("Hello" + name);
 
